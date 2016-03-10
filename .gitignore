@@ -11,3 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
+
+.env
+config/initializers/an_env_initializer.rb
