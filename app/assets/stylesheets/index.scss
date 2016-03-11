@@ -1,0 +1,15 @@
+// * {outline: 1px solid pink}
+body {
+  margin: 0;
+}
+
+.container {
+  @include outer-container;
+}
+
+h1 {
+  font-family: $font-stack-helvetica;
+  text-align: center;
+  background: pink;
+  margin: auto;
+}
