@@ -1,3 +1,8 @@
 <div class="container">
-  <h1>I'm the list of studios</h1>
+  <h1>I'm the list of studios in <span class="city" contenteditable="true">Seattle</span></h1>
+  <ul>
+    <% @studios.each do |studio| %>
+      <li><%= studio.name %></li>
+    <% end %>
+  </ul>
 </div>
