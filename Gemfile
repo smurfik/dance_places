@@ -29,6 +29,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Use Unicorn as the app server
 # gem 'unicorn'
 
+gem "koala", "~> 2.2"
 gem 'yelp'
 gem 'httparty'
 
