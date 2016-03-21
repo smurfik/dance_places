@@ -9,7 +9,9 @@ $(document).ready(function() {
   $.get("/search_google", {
     city: $('.city').text()
     }, function(data) {
-    console.log(data);
+      $('.city').html(data.address)
+      console.log($("h1"));
+      // console.log(data);
   });
 
 });

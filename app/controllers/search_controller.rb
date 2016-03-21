@@ -5,9 +5,11 @@ class SearchController < ApplicationController
     pretty_looking_address = info["results"][0]["formatted_address"]
     latitude = info["results"][0]["geometry"]["location"]["lat"]
     longitude = info["results"][0]["geometry"]["location"]["lng"]
+    YelpData.add_studios(latitude, longitude)
     render json: {
       lat: latitude,
-      lng: longitude
+      lng: longitude,
+      address: pretty_looking_address
     }
   end
 
