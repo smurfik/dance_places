@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('button#city_btn').click( function(e) {
+  $('button#city-btn').click( function(e) {
     e.preventDefault();
     var query = $('input#city').val() || "Seattle";
 
