@@ -7,6 +7,10 @@
   <ul>
     <% @studios.each do |studio| %>
       <li><%= studio.name %></li>
+      <li><%= studio.facebook_id %></li>
+      <li><%= studio.url %></li>
+      <li><%= image_tag(studio.image) %></li>
+      <br>
     <% end %>
   </ul>
 </div>
