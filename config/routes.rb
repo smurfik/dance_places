@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'studios#index'
   get '/search_google', to: "search#search_google"
+  get '/facebook', to: 'search#facebook'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

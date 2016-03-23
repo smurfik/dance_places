@@ -9,7 +9,6 @@ class YelpData < ActiveRecord::Base
              category_filter: 'dance_schools,dancestudio',
     }
     result = Yelp.client.search_by_coordinates(coordinates, info)
-    # r = {}
     result.businesses.each do |studio|
       st          = Studio.new
       st.name     = studio.name
@@ -20,16 +19,7 @@ class YelpData < ActiveRecord::Base
       st.lat      = studio.location.coordinate.latitude
       st.lng      = studio.location.coordinate.longitude
       st.save
-       # r[studio.name] = {
-       #   street: studio.location.address[0],
-       #   city: studio.location.city,
-       #   state: studio.location.state_code,
-       #   zip_code: studio.location.postal_code,
-       #   lat: studio.location.coordinate.latitude,
-       #   lng: studio.location.coordinate.longitude
-       # }
     end
-    # r
   end
 
 end

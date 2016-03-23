@@ -15,4 +15,20 @@ class SearchController < ApplicationController
     }
   end
 
+  def facebook
+    @studios = Studio.all
+    @graph = Facebook.graph
+    @studios.each do |studio|
+      id = get_studio(studio)
+      studio.update_attribute(:facebook_id, id["id"]) unless id == "Error"
+    end
+    raise
+  end
+
+  def get_studio(studio)
+    @graph.get_object(studio.name.gsub(/\s+|'|:/, ""))
+  rescue URI::InvalidURIError, Koala::Facebook::ClientError => e
+    "Error"
+  end
+
 end
