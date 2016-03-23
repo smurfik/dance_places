@@ -1,5 +1,5 @@
 require 'yelp'
-class YelpData < ActiveRecord::Base
+class SearchData < ActiveRecord::Base
 
   def self.add_studios(lat, lng)
     @graph = Facebook.graph
@@ -11,8 +11,8 @@ class YelpData < ActiveRecord::Base
     }
     result = Yelp.client.search_by_coordinates(coordinates, info)
     result.businesses.each do |studio|
-      id = get_studio(studio)
-      if id != "Error"
+      facebook_studio = get_studio(studio)
+      if facebook_studio != "Error"
         st          = Studio.new
         st.name     = studio.name
         st.street   = studio.location.address[0]
@@ -21,9 +21,9 @@ class YelpData < ActiveRecord::Base
         st.zip_code = studio.location.postal_code
         st.lat      = studio.location.coordinate.latitude
         st.lng      = studio.location.coordinate.longitude
-        st.facebook_id = id["id"]
+        st.facebook_id = facebook_studio["id"]
         st.save
-        add_website_image(st, id["id"])
+        add_website_and_image(st, facebook_studio["id"])
       end
     end
   end
@@ -34,13 +34,11 @@ class YelpData < ActiveRecord::Base
     "Error"
   end
 
-  def self.add_website_image(studio, facebook_id)
+  def self.add_website_and_image(studio, facebook_id)
     url = @graph.get_connections(facebook_id, "?fields=website")
-    studio.update_attribute(:url, url["website"].split[0]) unless !url["website"].present?
+    studio.update(url: url["website"].split[0]) unless !url["website"].present?
     image = @graph.get_connections(facebook_id, "?fields=photos{album,images}")
-    studio.update_attribute(:image, image["photos"]["data"][0]["images"][0]["source"]) unless !image["photos"]["data"][0]["images"][0]["source"].present?
-    # image = @graph.get_connections(studio.facebook_id, "?fields=picture{url}")
-    # studio.update_attribute(:image, image["picture"]["data"]["url"]) unless !image["picture"]["data"]["url"].present?
+    studio.update(image: image["photos"]["data"][0]["images"][0]["source"]) unless !image["photos"]["data"][0]["images"][0]["source"].present?
   end
 
 end
