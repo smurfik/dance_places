@@ -1,4 +1,4 @@
-* {outline: 1px solid pink}
+// * {outline: 1px solid pink}
 body {
   margin: 0;
 }
@@ -7,13 +7,20 @@ body {
   @include outer-container;
 }
 
-.form {
+.search-form {
   @include span-columns(6);
   @include shift(3);
+  margin-top: 30px;
+  margin-bottom: 30px;
 
   form input {
     width: 75%;
     display: inline-block;
+    margin-bottom: 0px;
+  }
+
+  form button {
+    margin-left: 20px;
   }
 
 }

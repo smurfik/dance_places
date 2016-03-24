@@ -5,14 +5,23 @@ class SearchController < ApplicationController
     pretty_looking_address = info["results"][0]["formatted_address"]
     latitude = info["results"][0]["geometry"]["location"]["lat"]
     longitude = info["results"][0]["geometry"]["location"]["lng"]
-    SearchData.add_studios(latitude, longitude)
-    studios = Studio.where(lat: latitude, lng: longitude)
-    render json: {
-      lat: latitude,
-      lng: longitude,
-      address: pretty_looking_address,
-      studios: studios
-    }
+    @studios = Studio.where(lat: latitude, lng: longitude)
+    if @studios == []
+      me = "here"
+      SearchData.add_studios(latitude, longitude)
+      studios = Studio.where(lat: latitude, lng: longitude)
+      render json: {
+        lat: latitude,
+        lng: longitude,
+        address: pretty_looking_address,
+        studios: studios
+      }
+    else
+      render json: {
+        address: pretty_looking_address,
+        studios: @studios
+      }
+    end
   end
 
 end

@@ -7,7 +7,7 @@ $(document).ready(function() {
       city: query
       }, function(data) {
         $('h1').html("The list of studios in " + data.address);
-        console.log(data.studios);
+        console.log(data);
     });
   });
 });
