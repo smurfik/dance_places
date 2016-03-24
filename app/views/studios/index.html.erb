@@ -8,12 +8,14 @@
   <h1>The list of studios in Seattle</h1>
   <ul>
     <% @studios.each do |studio| %>
-      <li><%= studio.name %></li>
-      <li><%= studio.facebook_id %></li>
-      <li><%= studio.url %></li>
-      <li><%= image_tag(studio.image) %></li>
-      <li><%= studio.street %>,<%= studio.state %></li>
-      <br>
+      <li>
+        <div class="studio-name"><%= studio.name %></div>
+        <%= link_to image_tag(studio.image), studio.facebook_link %>
+        <% if studio.url != nil %>
+          <div class="studio-url"><%= link_to "Studio Website", studio.url %></div>
+        <% end %>
+        <%= render "formatted_address", studio: studio %>
+      </li>
     <% end %>
   </ul>
 </div>

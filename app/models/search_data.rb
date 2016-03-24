@@ -23,7 +23,7 @@ class SearchData < ActiveRecord::Base
         st.lng      = studio.location.coordinate.longitude
         st.facebook_id = facebook_studio["id"]
         st.save
-        add_website_and_image(st, facebook_studio["id"])
+        add_websites_and_image(st, facebook_studio["id"])
       end
     end
   end
@@ -34,11 +34,19 @@ class SearchData < ActiveRecord::Base
     "Error"
   end
 
-  def self.add_website_and_image(studio, facebook_id)
+  def self.add_websites_and_image(studio, facebook_id)
     url = @graph.get_connections(facebook_id, "?fields=website")
-    studio.update(url: url["website"].split[0]) unless !url["website"].present?
+    if url["website"].present?
+      link = url["website"].split[0]
+      if !link.include?("http:\/\/")
+        link = link.insert(0, "http://")
+      end
+      studio.update(url: link)
+    end
     image = @graph.get_connections(facebook_id, "?fields=photos{album,images}")
     studio.update(image: image["photos"]["data"][0]["images"][0]["source"]) unless !image["photos"]["data"][0]["images"][0]["source"].present?
+    facebook_link = @graph.get_connections(facebook_id, "?fields=link")
+    studio.update(facebook_link: facebook_link["link"]) unless !facebook_link["link"].present?
   end
 
 end

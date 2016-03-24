@@ -1,4 +1,4 @@
-// * {outline: 1px solid pink}
+* {outline: 1px solid pink}
 body {
   margin: 0;
 }
@@ -35,4 +35,17 @@ h1 {
 
 .city {
   color: darkcyan;
+}
+
+li {
+  @include span-columns(3);
+  @include omega(4n);
+
+  .studio-name {
+    font-weight: bold;
+    text-align: center;
+  }
+
+  .studio-url {
+  }
 }
