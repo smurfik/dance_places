@@ -13,7 +13,7 @@ $(document).ready(function() {
     $.get("/search_google", {
       city: query
       }, function(data) {
-        $('h1').html("The list of studios in " + data.address);
+        $('h1').html("Studios in " + data.address);
         console.log(data);
     });
   });

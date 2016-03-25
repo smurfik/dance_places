@@ -6,23 +6,6 @@ body {
 .home-page {
   @include outer-container;
 
-  .search-form {
-    @include span-columns(6);
-    @include shift(3);
-    margin-top: 30px;
-    margin-bottom: 30px;
-
-    form input {
-      width: 75%;
-      display: inline-block;
-      margin-bottom: 0px;
-    }
-
-    form button {
-      margin-left: 20px;
-    }
-  }
-
   h1 {
     font-family: $font-stack-helvetica;
     text-align: center;
@@ -52,5 +35,13 @@ body {
     margin-bottom: 20px;
     margin-right: 1%;
     margin-left: 1%;
+  }
+}
+
+@media (max-width: 600px) {
+  .home-page {
+    .grid-item {
+      width: 48%;
+    }
   }
 }
