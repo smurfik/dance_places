@@ -1,4 +1,4 @@
-* {outline: 1px solid pink}
+// * {outline: 1px solid pink}
 body {
   margin: 0;
 }
@@ -37,9 +37,27 @@ h1 {
   color: darkcyan;
 }
 
+.grid-item {
+  width: 23%;
+  float: left;
+  background: #D26;
+  border: 2px solid #333;
+  border-color: hsla(0, 0%, 0%, 0.5);
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-right: 1%;
+  margin-left: 1%;
+}
+
 li {
-  @include span-columns(3);
-  @include omega(4n);
+  // @include span-columns(3);
+  // @include omega(4n);
+  // @include clearfix;
+  clear: both;
+
+  a {
+    display: block;
+  }
 
   .studio-name {
     font-weight: bold;

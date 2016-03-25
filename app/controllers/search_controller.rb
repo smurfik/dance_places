@@ -7,7 +7,6 @@ class SearchController < ApplicationController
     longitude = info["results"][0]["geometry"]["location"]["lng"]
     @studios = Studio.where(lat: latitude, lng: longitude)
     if @studios == []
-      me = "here"
       SearchData.add_studios(latitude, longitude)
       studios = Studio.where(lat: latitude, lng: longitude)
       render json: {

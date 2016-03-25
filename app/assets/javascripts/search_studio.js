@@ -1,4 +1,11 @@
 $(document).ready(function() {
+
+  $('img').on('load', function() {
+    $('.grid').masonry({
+      itemSelector: '.grid-item',
+    });
+  });
+
   $('button#city-btn').click( function(e) {
     e.preventDefault();
     var query = $('input#city').val() || "Seattle";
