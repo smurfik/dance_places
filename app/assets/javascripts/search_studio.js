@@ -11,6 +11,7 @@ $(document).ready(function() {
 
   $('button#city-btn').click( function(e) {
     e.preventDefault();
+    $(".new").remove();
     var query = $('input#city').val() || "Seattle";
     $(".wrapper").css("display", "block");
 
@@ -24,31 +25,37 @@ $(document).ready(function() {
         var url, html, studio;
         var elements = [];
 
-        for(var i=0; i < data.studios.length; i++) {
-          studio = data.studios[i]
-          url = ""
-          if (data.studios[i].url){
-            url = '<div><a href="'+ data.studios[i].url + '">Studio Website</a></div>';
-          }
-          html = '<li class="grid-item"><div class="studio-name">'
-                 + studio.name
-                 + '</div><a href="'
-                 + studio.facebook_link
-                 + '"><img src="'
-                 + studio.image
-                 + '"/></a>'
-                 + url
-                 + '<div>'
-                 + studio.street
-                 + '</div><div>'
-                 + studio.city
-                 + ', '
-                 + studio.state
-                 + ' '
-                 + studio.zip_code
-                 + '</div></li>'
+        if (data.studios.length === 0) {
+          $('h1').empty();
+          $('h1').after('<div class="new">No studios were found in ' + data.address + '</div><div class="new"><a href="/">Go Home</a></div>');
+        } else {
 
-          elements.push($(html));
+          for(var i=0; i < data.studios.length; i++) {
+            studio = data.studios[i]
+            url = ""
+            if (data.studios[i].url){
+              url = '<div><a href="'+ data.studios[i].url + '">Studio Website</a></div>';
+            }
+            html = '<li class="grid-item"><div class="studio-name">'
+                   + studio.name
+                   + '</div><a href="'
+                   + studio.facebook_link
+                   + '"><img src="'
+                   + studio.image
+                   + '"/></a>'
+                   + url
+                   + '<div>'
+                   + studio.street
+                   + '</div><div>'
+                   + studio.city
+                   + ', '
+                   + studio.state
+                   + ' '
+                   + studio.zip_code
+                   + '</div></li>'
+
+            elements.push($(html));
+          }
         }
         $grid.append(elements);
 
