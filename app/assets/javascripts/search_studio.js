@@ -45,6 +45,7 @@ $(document).ready(function() {
                    + '"><img src="'
                    + studio.image
                    + '"/></a>'
+                   + '<i class="fa fa-facebook-official fa-2x facebook-icon"></i>'
                    + url
                    + '<div class="studio-street">'
                    + studio.street
