@@ -10,8 +10,6 @@ class SearchController < ApplicationController
       SearchData.add_studios(latitude, longitude)
       studios = Studio.where(lat: latitude, lng: longitude)
       render json: {
-        lat: latitude,
-        lng: longitude,
         address: pretty_looking_address,
         studios: studios
       }
