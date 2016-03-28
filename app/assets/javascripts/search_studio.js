@@ -12,6 +12,7 @@ $(document).ready(function() {
   $('button#city-btn').click( function(e) {
     e.preventDefault();
     var query = $('input#city').val() || "Seattle";
+    $(".wrapper").css("display", "block");
 
     $.get("/search_google", {
       city: query
@@ -58,5 +59,10 @@ $(document).ready(function() {
         });
 
       });
+
+      $(document).ajaxStop(function() {
+        $(".wrapper").css("display", "none");
+      });
+
   });
 });
