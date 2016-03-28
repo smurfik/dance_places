@@ -2,8 +2,8 @@
   <div class="studio-name"><%= studio.name %></div>
   <%= link_to image_tag(studio.image), studio.facebook_link %>
   <% if studio.url != nil %>
-    <div><%= link_to "Studio Website", studio.url %></div>
+    <div class="studio-link"><%= link_to "Studio Website", studio.url %></div>
   <% end %>
-  <div><%= studio.street %></div>
-  <div><%= studio.city %>, <%= studio.state %> <%= studio.zip_code %></div>
+  <div class="studio-street"><%= studio.street %></div>
+  <div class="studio-address"><%= studio.city %>, <%= studio.state %> <%= studio.zip_code %></div>
 </li>

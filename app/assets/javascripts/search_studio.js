@@ -34,7 +34,7 @@ $(document).ready(function() {
             studio = data.studios[i]
             url = ""
             if (data.studios[i].url){
-              url = '<div><a href="'+ data.studios[i].url + '">Studio Website</a></div>';
+              url = '<div class="studio-link"><a href="'+ data.studios[i].url + '">Studio Website</a></div>';
             }
             html = '<li class="grid-item"><div class="studio-name">'
                    + studio.name
@@ -44,9 +44,9 @@ $(document).ready(function() {
                    + studio.image
                    + '"/></a>'
                    + url
-                   + '<div>'
+                   + '<div class="studio-street">'
                    + studio.street
-                   + '</div><div>'
+                   + '</div><div class="studio-address">'
                    + studio.city
                    + ', '
                    + studio.state

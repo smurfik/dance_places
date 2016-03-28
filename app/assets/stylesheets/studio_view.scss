@@ -1,20 +1,47 @@
+$st-blue: #114B5F;
+$st-shadow: hsla(0, 0%, 0%, 0.2);
 .home-page {
   .grid-item {
     width: 23%;
     float: left;
     background: $light-green;
     border: 2px solid $medium-green;
-    border-color: hsla(0, 0%, 0%, 0.5);
+    border-color: $st-shadow;
     border-radius: 5px;
     margin-bottom: 20px;
     margin-right: 1%;
     margin-left: 1%;
   }
 
+  img {
+    -webkit-filter: drop-shadow(5px 5px 3px $st-shadow);
+    filter: drop-shadow(5px 5px 3px $st-shadow);
+    // -webkit-filter: grayscale(100%);
+    // filter: grayscale(100%);
+  }
+
   li .studio-name {
     font-weight: bold;
     text-align: center;
     font-size: 18px;
+    text-shadow: 1px 1px $st-shadow;
+    color: $st-blue;
+    padding-left: 5px;
+  }
+
+  li .studio-link {
+    padding-left: 5px;
+  }
+
+  li .studio-street {
+    font-size: 15px;
+    padding-left: 5px;
+  }
+
+  li .studio-address {
+    font-size: 14px;
+    padding-left: 5px;
+    padding-bottom: 5px;
   }
 }
 
