@@ -27,7 +27,9 @@ $(document).ready(function() {
 
         if (data.studios.length === 0) {
           $('h1').empty();
-          $('h1').after('<div class="new">No studios were found in ' + data.address + '</div><div class="new"><a href="/">Go Home</a></div>');
+          $('h1').after('<div class="new">No studios were found in '
+                  + data.address
+                  + '</div><div class="new"><a href="/">Go Home</a></div>');
         } else {
 
           for(var i=0; i < data.studios.length; i++) {
