@@ -14,8 +14,6 @@
   img {
     -webkit-filter: drop-shadow(5px 5px 3px $st-shadow);
     filter: drop-shadow(5px 5px 3px $st-shadow);
-    // -webkit-filter: grayscale(100%);
-    // filter: grayscale(100%);
   }
 
   .facebook-icon {
@@ -23,6 +21,7 @@
     color: #C6DABF;
     top: 30px;
     right: 5px;
+    opacity: 0.6;
   }
 
   li .studio-name {
@@ -51,6 +50,14 @@
 }
 
 @media (max-width: 600px) {
+  .home-page {
+    .grid-item {
+      width: 98%;
+    }
+  }
+}
+
+@media (min-width: 600px) and (max-width: 850px) {
   .home-page {
     .grid-item {
       width: 48%;
