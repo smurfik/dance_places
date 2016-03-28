@@ -31,9 +31,12 @@ $light-gray: #ddd;
 $light-green: #88D498;
 $medium-green: #1A936F;
 $beige: #F3E9D2;
+$st-blue: #114B5F;
+$st-shadow: hsla(0, 0%, 0%, 0.2);
 
 // Font Colors
-$base-font-color: $dark-gray;
+// $base-font-color: $dark-gray;
+$base-font-color: $st-blue;
 $action-color: $blue;
 
 // Border

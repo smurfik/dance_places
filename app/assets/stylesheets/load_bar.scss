@@ -32,13 +32,20 @@
 .wrapper h3 {
   font-size: 28px;
   padding: 20px 0 8px 0;
+  color: $st-blue;
+  text-align: center;
 }
 
 .wrapper p {
-  font-size: 13px;
+  font-size: 14px;
+  color: $st-blue;
 }
 
 @keyframes loader {
   from { width: 0%; }
   to { width: 100%; }
+}
+
+.new {
+  text-align: center;
 }
