@@ -15,22 +15,22 @@
   .search-term {
     float: left;
     width: 100%;
-    border: 3px solid #00B4CC;
+    border: 3px solid $light-green;
     border-radius: 5px;
-    color: #9DBFAF;
+    color: $light-green;
     margin-bottom: 0;
   }
 
   .search-term:focus{
-    color: #00B4CC; //color for the text when inputing the search
+    color: $medium-green; //color for the text when inputing the search
   }
 
   .search-button {
     position: absolute;
     right: -60px;
     height: 40px;
-    border: 2px solid #00B4CC;
-    background: #00B4CC;
+    border: 2px solid $light-green;
+    background: $light-green;
     font-size: 20px;
   }
 
