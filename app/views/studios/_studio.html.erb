@@ -1,7 +1,9 @@
 <li class="grid-item">
   <div class="studio-name"><%= studio.name %></div>
-  <%= link_to image_tag(studio.image), studio.facebook_link %>
-  <i class="fa fa-facebook-official fa-2x facebook-icon"></i>
+  <%= link_to studio.facebook_link, class: "facebook-link" do %>
+    <%= image_tag(studio.image) %>
+    <i class="fa fa-facebook-official fa-2x facebook-icon"></i>
+  <% end %>
   <% if studio.url != nil %>
     <div class="studio-link"><%= link_to "Studio Website", studio.url %></div>
   <% end %>

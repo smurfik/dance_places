@@ -40,12 +40,11 @@ $(document).ready(function() {
             }
             html = '<li class="grid-item"><div class="studio-name">'
                    + studio.name
-                   + '</div><a href="'
+                   + '</div><a class="facebook-link" href="'
                    + studio.facebook_link
                    + '"><img src="'
                    + studio.image
-                   + '"/></a>'
-                   + '<i class="fa fa-facebook-official fa-2x facebook-icon"></i>'
+                   + '"/><i class="fa fa-facebook-official fa-2x facebook-icon"></i></a>'
                    + url
                    + '<div class="studio-street">'
                    + studio.street
