@@ -1,3 +1,3 @@
 # Dance Studios/Events
 
-<http://www.tammypop.com/>
+<http://dance-places.herokuapp.com/>
