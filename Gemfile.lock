@@ -50,6 +50,7 @@ GEM
       execjs
     coffee-script-source (1.10.0)
     concurrent-ruby (1.0.1)
+    crass (1.0.5)
     debug_inspector (0.0.2)
     dotenv (2.1.0)
     dotenv-rails (2.1.0)
@@ -79,20 +80,21 @@ GEM
       addressable
       faraday
       multi_json
-    loofah (2.0.3)
+    loofah (2.3.1)
+      crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.6.4)
       mime-types (>= 1.16, < 4)
     mime-types (3.0)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0221)
-    mini_portile2 (2.0.0)
+    mini_portile2 (2.1.0)
     minitest (5.8.4)
     multi_json (1.11.2)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
-    nokogiri (1.6.7.2)
-      mini_portile2 (~> 2.0.0.rc2)
+    nokogiri (1.6.8.1)
+      mini_portile2 (~> 2.1.0)
     pg (0.18.4)
     rack (1.6.4)
     rack-test (0.6.3)
